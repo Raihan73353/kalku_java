@@ -10,7 +10,8 @@ package com.mycompany.mavenproject1;
  */
 public class kalkulatorjuga extends javax.swing.JFrame {
 String angka;
-int bil1, bil2, jumblah;
+Double bil1,bil2, jumblah;
+//int bil1, bil2, jumblah;
 int pilih;
 
     /**
@@ -355,28 +356,46 @@ tampilHasil.setText(angka);        // TODO add your handling code here:
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
  switch(pilih){
         case 1 -> {
-            bil2=Integer.parseInt(angka);
+            bil2=Double.parseDouble(angka);
             jumblah = bil1+bil2;
-           angka=Integer.toString(jumblah);
+            if(Math.floor(jumblah) == jumblah) {
+            angka = String.format("%.0f",jumblah);
+        }else{
+            angka = Double.toString(jumblah);
+        }
             tampilHasil.setText(angka);
-            
+            break;
         }
         case 2 -> {
-            bil2=Integer.parseInt(angka);
+            bil2=Double.parseDouble(angka);
             jumblah = bil1-bil2;
-            angka=Integer.toString(jumblah);
+           if(Math.floor(jumblah)==(jumblah))
+           {              
+            angka = String.format("%.0f", jumblah);
+                    }else
+           {
+               angka=Double.toString(jumblah);
+           }
             tampilHasil.setText(angka);
         }
         case 3 -> {
-            bil2=Integer.parseInt(angka);
+            bil2=Double.parseDouble(angka);
             jumblah = bil1*bil2;
-           angka=Integer.toString(jumblah);
+           if(Math.floor(jumblah)==(jumblah)){
+            angka = String.format("%.0f", jumblah);
+                    }else{
+          angka=Double.toString(jumblah);
+                  }
             tampilHasil.setText(angka);
         }
         case 4 -> {
-            bil2=Integer.parseInt(angka);
+            bil2=Double.parseDouble(angka);
             jumblah = bil1/bil2;
-            angka=Integer.toString(jumblah);
+           if(Math.floor(jumblah)==(jumblah)){
+            angka = String.format("%.0f", jumblah);
+                    }else{
+          angka=Double.toString(jumblah);
+                  }
             tampilHasil.setText(angka);
         }
         
@@ -458,7 +477,7 @@ tampilHasil.setText(angka);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-bil1=Integer.parseInt(angka);
+bil1=Double.parseDouble(angka);
 tampilHasil.setText(bil1 + "+");
 angka="";
 pilih=1;
@@ -470,7 +489,7 @@ pilih=1;
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-bil1=Integer.parseInt(angka);
+bil1=Double.parseDouble(angka);
 tampilHasil.setText("-");
 angka="";
 pilih=2;
@@ -478,7 +497,7 @@ pilih=2;
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-bil1=Integer.parseInt(angka);
+bil1=Double.parseDouble(angka);
 tampilHasil.setText("*");
 angka="";
 pilih=3;
@@ -486,7 +505,7 @@ pilih=3;
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-bil1=Integer.parseInt(angka);
+bil1=Double.parseDouble(angka);
 tampilHasil.setText("/");
 angka="";
 pilih=4;
@@ -495,8 +514,8 @@ pilih=4;
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 tampilHasil.setText("");
-bil1=0;
-bil2=0;
+bil1=0.0;
+bil2=0.0;
 angka="";// TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -512,14 +531,14 @@ tampilHasil.setText(angka);           // TODO add your handling code here:
    // pilih = 5;
  if (!angka.isEmpty()) { 
         if (bil1 == 0) {
-            bil1 = Integer.parseInt(angka);
+            bil1 = Double.parseDouble(angka);
             bil1 = bil1 / 100;
-            angka = Integer.toString(bil1);
+            angka = Double.toString(bil1);
             tampilHasil.setText(angka);
         } else {
-            bil2 = Integer.parseInt(angka);
+            bil2 = Double.parseDouble(angka);
             bil2 = (bil1 * bil2) / 100;
-            angka = Integer.toString(bil2);
+            angka = Double.toString(bil2);
             tampilHasil.setText(angka);
         }
     }
